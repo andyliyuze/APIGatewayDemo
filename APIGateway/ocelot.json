@@ -1,18 +1,18 @@
 {
   "ReRoutes": [],
   "Aggregates": [],
-  "DynamicReRoutes": [
-    {
-      "ServiceName": "customerService",
-      "RateLimitRule": {
-        "ClientWhitelist": [],
-        "EnableRateLimiting": true,
-        "Period": "1s",
-        "PeriodTimespan": 1000.0,
-        "Limit": 3
-      }
-    }
-  ],
+  //"DynamicReRoutes": [
+  //  {
+  //    "ServiceName": "customerService",
+  //    "RateLimitRule": {
+  //      "ClientWhitelist": [],
+  //      "EnableRateLimiting": true,
+  //      "Period": "1s",
+  //      "PeriodTimespan": 1000.0,
+  //      "Limit": 3
+  //    }
+  //  }
+  //],
   "GlobalConfiguration": {
     "RequestIdKey": null,
     "ServiceDiscoveryProvider": {
