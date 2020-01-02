@@ -1,2 +1,9 @@
+stages:
+- name: 编译
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: apigetway
 timeout: 60
 notification: {}
