@@ -2,7 +2,7 @@ stages:
 - name: 编译
   steps:
   - publishImageConfig:
-      dockerfilePath: ./Dockerfile
+      dockerfilePath: ./CustomersAPIServices/Dockerfile
       buildContext: .
       tag: apigetway
       registry: 127.0.0.1:34610
