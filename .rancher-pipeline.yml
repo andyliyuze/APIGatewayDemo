@@ -2,7 +2,7 @@ stages:
 - name: 镜像
   steps:
   - publishImageConfig:
-      dockerfilePath: ./CustomersAPIServices/Dockerfile
+      dockerfilePath: ./Dockerfile
       buildContext: .
       tag: getway
       pushRemote: true
