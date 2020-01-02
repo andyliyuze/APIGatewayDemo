@@ -10,7 +10,7 @@
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "Catcher Wong", "James Li" };
+            return new string[] { "Catcher Wong", "James Li", "James Li" };
         }
 
         [HttpGet("{id}")]
