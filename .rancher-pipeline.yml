@@ -5,7 +5,6 @@ stages:
       dockerfilePath: ./CustomersAPIServices/Dockerfile
       buildContext: .
       tag: apigetway
-      pushRemote: true
       registry: 127.0.0.1:34610
 timeout: 60
 notification: {}
