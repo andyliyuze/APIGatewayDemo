@@ -1,10 +1,9 @@
 ﻿namespace ProductsAPIServices
 {
     using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
-    
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -17,16 +16,16 @@
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddControllers();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            if (env.IsDevelopment())
+        public void Configure(IApplicationBuilder app)
+        { 
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
             {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseMvc();
+                endpoints.MapDefaultControllerRoute();
+            });
         }
     }
 }

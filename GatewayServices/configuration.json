@@ -1,13 +1,27 @@
 ﻿{
-  "ReRoutes": [
+
+  "Routes1": [
+    {
+      "DownstreamPathTemplate": "/todos/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "jsonplaceholder.typicode.com",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/todos/{id}",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+  ],
+
+
+  "Routes": [
     {
       "DownstreamPathTemplate": "/api/customers",
       "DownstreamScheme": "http",
-      "ServiceName": "customer",
+      "ServiceName": "customerService",
       "UpstreamPathTemplate": "/customers",
-
-      //"DownstreamHost": "localhost",
-      //"DownstreamPort": 9001,
       "UpstreamHttpMethod": [ "Get" ],
       "QoSOptions": {
         "ExceptionsAllowedBeforeBreaking": 3,
@@ -19,7 +33,7 @@
     {
       "DownstreamPathTemplate": "/api/customers/{id}",
       "DownstreamScheme": "http",
-      "ServiceName": "customer",
+      "ServiceName": "customerService",
       "UpstreamPathTemplate": "/customers/{id}",
       "UpstreamHttpMethod": [ "Get" ],
       "QoSOptions": {
@@ -45,15 +59,32 @@
     }
   ],
   "GlobalConfiguration": {
-    "RequestIdKey": "OcRequestId",
-    "AdministrationPath": "/administration",
+    "RequestIdKey": "",
     "ServiceDiscoveryProvider": {
       "Host": "localhost",
       "Port": 8500,
-      "Type": "PollConsul"
+      "Type": "Consul",
+      "Token": null,
+      "ConfigurationKey": null
+    },
+    "RateLimitOptions": {
+      "ClientIdHeader": "ClientId",
+      "QuotaExceededMessage": null,
+      "RateLimitCounterPrefix": "ocelot",
+      "DisableRateLimitHeaders": false,
+      "HttpStatusCode": 429
+    },
+    "BaseUrl": null,
+    "LoadBalancerOptions": {
+      "Type": "LeastConnection",
+      "Key": null,
+      "Expiry": 0
+    },
+    "DownstreamScheme": "http",
+    "HttpHandlerOptions": {
+      "AllowAutoRedirect": true,
+      "UseCookieContainer": false,
+      "UseTracing": false
     }
   }
 }
-
-
-
