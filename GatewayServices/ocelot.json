@@ -1,48 +1,58 @@
 {
   "Routes": [
-    //{
-    //  "DownstreamPathTemplate": "/api/customers",
-    //  "DownstreamScheme": "http",
-    //  "ServiceName": "customerService",
-    //  "UpstreamPathTemplate": "/customers",
-    //  "UpstreamHttpMethod": [ "Get" ],
+    {
+      "DownstreamPathTemplate": "/api/customers",
+      "DownstreamScheme": "http",
+      "ServiceName": "customerService",
+      "UpstreamPathTemplate": "/customers",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": [ "cameraGatewayStatus1" ]
+      },
+      "UseServiceDiscovery": true
+    },
+    {
+      "DownstreamPathTemplate": "/api/customers/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "customerService",
+      "UpstreamPathTemplate": "/customers/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": [ "cameraGatewayStatus" ]
+      },
 
-    //  "UseServiceDiscovery": true
-    //},
-    //{
-    //  "DownstreamPathTemplate": "/api/customers/{id}",
-    //  "DownstreamScheme": "http",
-    //  "ServiceName": "customerService",
-    //  "UpstreamPathTemplate": "/customers/{id}",
-    //  "UpstreamHttpMethod": [ "Get" ],
+      "UseServiceDiscovery": true
+    },
+    {
+      "DownstreamPathTemplate": "/api/products",
+      "DownstreamScheme": "http",
+      "ServiceName": "product",
+      "UpstreamPathTemplate": "/api/products",
+      "UpstreamHttpMethod": [ "Get" ],
 
-
-    //  "UseServiceDiscovery": true
-    //},
-    //{
-    //  "DownstreamPathTemplate": "/api/products",
-    //  "DownstreamScheme": "http",
-    //  "ServiceName": "product",
-    //  "UpstreamPathTemplate": "/api/products",
-    //  "UpstreamHttpMethod": [ "Get" ],
-
-    //  "UseServiceDiscovery": true
-    //}
+      "UseServiceDiscovery": true
+    }
   ],
   "Aggregates": [],
   //Example:/customerService/api/customers->/api/customers
-  "DynamicRoutes": [
-    {
-      "ServiceName": "customerService",
-      "RateLimitRule": {
-        "ClientWhitelist": [],
-        "EnableRateLimiting": true,
-        "Period": "1s",
-        "PeriodTimespan": 1000.0,
-        "Limit": 3
-      }
-    }
-  ],
+  //"DynamicRoutes": [
+  //  {
+  //    "ServiceName": "customerService",
+  //    "RateLimitRule": {
+  //      "ClientWhitelist": [],
+  //      "EnableRateLimiting": true,
+  //      "Period": "1s",
+  //      "PeriodTimespan": 1000.0,
+  //      "Limit": 3
+  //    },
+  //    "AuthenticationOptions": {
+  //      "AuthenticationProviderKey": "Bearer",
+  //      "AllowedScopes": []
+  //    }
+  //  }
+  //],
   "GlobalConfiguration": {
     "RequestIdKey": "",
     "ServiceDiscoveryProvider": {

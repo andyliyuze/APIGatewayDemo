@@ -1,12 +1,14 @@
-﻿namespace CustomersAPIServices.Controllers
+﻿namespace CustomersServices.Controllers
 {
     
     using System.Collections.Generic;
     using Microsoft.AspNetCore.Mvc;
-    
+    using Microsoft.AspNetCore.RateLimiting;
+
     [Route("api/[controller]")]
+    [EnableRateLimiting("fixed")]
     public class CustomersController : Controller
-    {        
+    { 
         [HttpGet]
         public IEnumerable<string> Get()
         {

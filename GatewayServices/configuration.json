@@ -1,5 +1,4 @@
 ﻿{
-
   "Routes1": [
     {
       "DownstreamPathTemplate": "/todos/{id}",
@@ -14,8 +13,6 @@
       "UpstreamHttpMethod": [ "Get" ]
     }
   ],
-
-
   "Routes": [
     {
       "DownstreamPathTemplate": "/api/customers",
@@ -27,6 +24,10 @@
         "ExceptionsAllowedBeforeBreaking": 3,
         "DurationOfBreak": 10,
         "TimeoutValue": 5000
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": [ "cameraGatewayStatus" ]
       },
       "UseServiceDiscovery": true
     },
